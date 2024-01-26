@@ -6,7 +6,6 @@ from . import db
 blog = Blueprint('blog', __name__)
 
 @blog.route('/blog', methods=['GET', 'POST'])
-@login_required
 def blogView():
     posts = Post.query.filter_by(status='public')
     if request.method == 'POST':
